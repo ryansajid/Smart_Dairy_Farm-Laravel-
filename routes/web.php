@@ -103,33 +103,41 @@ Route::middleware(['auth'])->group(function () {
 
 
 Route::get('/', function(){
-
-
-// Role::create(['name' => 'admin']);
-// Role::create(['name' => 'staff']);
-// Role::create(['name' => 'receptionist']);
-// Role::create(['name' => 'visitor']);
-
-// dd(Role::all());
-//---------- add role to any user --------------------------
-    // $user = User::where('name','Staff')->first();
-    // // dd($user);
-    // $user->assignRole('staff');
-    // dd($user->getRoleNames());
-    // $user->removeRole('staff');
-
-    // dd($user->getRoleNames());
-
-//---------- add permission to any user ------------------------
-// use Spatie\Permission\Models\Permission;
-    // $user = User::latest()->first();
-    // $user->givePermissionTo('create users');
-
-    return "This is the Homepage ";
     return view('home');
 })->name('home');
 
+/*
+|--------------------------------------------------------------------------
+| Ogani Template Pages
+|--------------------------------------------------------------------------
+*/
+Route::get('/shop', function(){
+    return view('shop');
+})->name('shop');
 
+Route::get('/shop-details', function(){
+    return view('shop-details');
+})->name('shop-details');
+
+Route::get('/blog', function(){
+    return view('blog');
+})->name('blog');
+
+Route::get('/blog-details', function(){
+    return view('blog-details');
+})->name('blog-details');
+
+Route::get('/contact', function(){
+    return view('contact');
+})->name('contact');
+
+Route::get('/shopping-cart', function(){
+    return view('shopping-cart');
+})->name('shopping-cart');
+
+Route::get('/checkout', function(){
+    return view('checkout');
+})->name('checkout');
 
 /*
 |--------------------------------------------------------------------------
