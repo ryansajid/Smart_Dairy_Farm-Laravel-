@@ -11,20 +11,14 @@
                     <div class="hero__categories">
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
-                            <span>All departments</span>
+                            <span>All Categories</span>
                         </div>
                         <ul>
-                            <li><a href="#">Fresh Meat</a></li>
-                            <li><a href="#">Vegetables</a></li>
-                            <li><a href="#">Fruit & Nut Gifts</a></li>
-                            <li><a href="#">Fresh Berries</a></li>
-                            <li><a href="#">Ocean Foods</a></li>
-                            <li><a href="#">Butter & Eggs</a></li>
-                            <li><a href="#">Fastfood</a></li>
-                            <li><a href="#">Fresh Onion</a></li>
-                            <li><a href="#">Papayaya & Crisps</a></li>
-                            <li><a href="#">Oatmeal</a></li>
-                            <li><a href="#">Fresh Bananas</a></li>
+                            @forelse($categories as $category)
+                                <li><a href="#">{{ $category->name }}</a></li>
+                            @empty
+                                <li><a href="#">No categories yet</a></li>
+                            @endforelse
                         </ul>
                     </div>
                 </div>
@@ -68,37 +62,158 @@
     <section class="categories">
         <div class="container">
             <div class="row">
-                <div class="categories__slider owl-carousel">
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="{{ asset('img/categories/cat-1.jpg') }}">
-                            <h5><a href="#">Fresh Fruit</a></h5>
-                        </div>
+                    <div class="categories__slider owl-carousel">
+                        @forelse($categories as $category)
+                            <div class="col-lg-3">
+                                <div class="categories__item set-bg" 
+                                     data-setbg="{{ $category->image ? asset($category->image) : asset('img/categories/cat-1.jpg') }}">
+                                    <h5><a href="{{ route('shop', ['category' => $category->id]) }}">{{ $category->name }}</a></h5>
+                                </div>
+                            </div>
+                        @empty
+                            <div class="col-lg-12">
+                                <p class="text-center">No categories available yet.</p>
+                            </div>
+                        @endforelse
                     </div>
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="{{ asset('img/categories/cat-2.jpg') }}">
-                            <h5><a href="#">Dried Fruit</a></h5>
+            </div>
+        </div>
+    </section>
+    <!-- Categories Section End -->
+
+    <!-- Sale Off Section Begin -->
+    <section class="product spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="product__discount">
+                        <div class="section-title product__discount__title">
+                            <h2>Sale Off</h2>
                         </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="{{ asset('img/categories/cat-3.jpg') }}">
-                            <h5><a href="#">Vegetables</a></h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="{{ asset('img/categories/cat-4.jpg') }}">
-                            <h5><a href="#">drink fruits</a></h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="{{ asset('img/categories/cat-5.jpg') }}">
-                            <h5><a href="#">drink fruits</a></h5>
+                        <div class="row">
+                            <div class="product__discount__slider owl-carousel">
+                                <div class="col-lg-4">
+                                    <div class="product__discount__item">
+                                        <div class="product__discount__item__pic set-bg"
+                                            data-setbg="{{ asset('img/product/discount/pd-1.jpg') }}"
+                                            style="background-position: center center;">
+                                            <div class="product__discount__percent">-20%</div>
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                            <span>Liquid Milk</span>
+                                            <h5><a href="#">Fresh Milk</a></h5>
+                                            <div class="product__item__price">$30.00 <span>$36.00</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="product__discount__item">
+                                        <div class="product__discount__item__pic set-bg"
+                                            data-setbg="{{ asset('img/product/discount/pd-2.jpg') }}"
+                                            style="background-position: center center;">
+                                            <div class="product__discount__percent">-20%</div>
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                            <span>Yogurt (Doi) & Drinks</span>
+                                            <h5><a href="#">Sweet Yogurt</a></h5>
+                                            <div class="product__item__price">$30.00 <span>$36.00</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="product__discount__item">
+                                        <div class="product__discount__item__pic set-bg"
+                                            data-setbg="{{ asset('img/product/discount/pd-3.jpg') }}"
+                                            style="background-position: center center;">
+                                            <div class="product__discount__percent">-20%</div>
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                            <span>Milk Powder & Cream</span>
+                                            <h5><a href="#">Full Cream Milk Powder</a></h5>
+                                            <div class="product__item__price">$30.00 <span>$36.00</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="product__discount__item">
+                                        <div class="product__discount__item__pic set-bg"
+                                            data-setbg="{{ asset('img/product/discount/pd-4.jpg') }}"
+                                            style="background-position: center center;">
+                                            <div class="product__discount__percent">-20%</div>
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                            <span>Ghee & Butter</span>
+                                            <h5><a href="#">Pure Ghee</a></h5>
+                                            <div class="product__item__price">$30.00 <span>$36.00</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="product__discount__item">
+                                        <div class="product__discount__item__pic set-bg"
+                                            data-setbg="{{ asset('img/product/discount/pd-5.jpg') }}"
+                                            style="background-position: center center;">
+                                            <div class="product__discount__percent">-20%</div>
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                            <span>Condensed & Evaporated Milk</span>
+                                            <h5><a href="#">Condensed Milk</a></h5>
+                                            <div class="product__item__price">$30.00 <span>$36.00</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="product__discount__item">
+                                        <div class="product__discount__item__pic set-bg"
+                                            data-setbg="{{ asset('img/product/discount/pd-6.jpg') }}"
+                                            style="background-position: center center;">
+                                            <div class="product__discount__percent">-20%</div>
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                            <span>Cheese</span>
+                                            <h5><a href="#">Processed Cheese</a></h5>
+                                            <div class="product__item__price">$30.00 <span>$36.00</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Categories Section End -->
+    <!-- Sale Off Section End -->
 
     <!-- Featured Section Begin -->
     <section class="featured spad">

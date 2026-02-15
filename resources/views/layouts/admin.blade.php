@@ -103,14 +103,30 @@
             font-weight: 500;
         }
 
-        .sidebar-item:hover, .sidebar-item.active {
+        .sidebar-item:hover {
             color: #fff;
             background: rgba(79, 70, 229, 1);
+            transform: translateX(5px);
+            box-shadow: 0 0 20px rgba(79, 70, 229, 0.4);
         }
 
         .sidebar-item.active {
             background: var(--accent-indigo);
-            box-shadow: var(--neon-indigo);
+            box-shadow: 0 0 20px rgba(79, 70, 229, 0.4);
+            transition: all 0.3s;
+        }
+        
+        .sidebar-item.active:hover {
+            color: #fff;
+            background: rgba(79, 70, 229, 1);
+            transform: translateX(5px);
+            box-shadow: 0 0 20px rgba(79, 70, 229, 0.4);
+        }
+        
+        .submenu-item:hover {
+            background: rgba(79, 70, 229, 0.1);
+            color: var(--accent-indigo);
+            box-shadow: 0 0 10px rgba(79, 70, 229, 0.2);
         }
 
         .sidebar-submenu {
@@ -177,10 +193,15 @@
         /* Stats Row */
         .summary-card {
             padding: 1.5rem;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+        
+        .summary-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.3);
         }
 
         .summary-card h2 { font-size: 2rem; font-weight: 800; margin: 0; letter-spacing: -1px; }
@@ -480,7 +501,17 @@
             letter-spacing: 2px;
             font-size: 0.85rem;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.6), 0 0 40px rgba(59, 130, 246, 0.3);
+        }
+        
+        .btn-gradient:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.9), 0 0 80px rgba(59, 130, 246, 0.7), 0 0 120px rgba(59, 130, 246, 0.5);
+            filter: brightness(1.3);
+        }
+        
+        .btn-gradient:active {
+            transform: translateY(-2px) scale(0.98);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.7), 0 0 40px rgba(59, 130, 246, 0.5);
         }
 
         .btn-outline {
@@ -560,7 +591,9 @@
             </div>
 
             <nav>
-                <a href="{{ route('admin.dashboard') }}" class="sidebar-item active"><i class="fas fa-th-large"></i> Herd Analytics</a>
+                <a href="{{ route('admin.dashboard') }}" class="sidebar-item"><i class="fas fa-th-large"></i> Herd Analytics</a>
+                <a href="{{ route('admin.categories.index') }}" class="sidebar-item"><i class="fas fa-layer-group"></i> Categories</a>
+                <a href="{{ route('admin.products.index') }}" class="sidebar-item"><i class="fas fa-box"></i> Products</a>
                 <a href="{{ route('admin.visitor.registration.create') }}" class="sidebar-item"><i class="fas fa-plus"></i> Visitor Registration</a>
                 <a href="{{ route('admin.visitor.list') }}" class="sidebar-item"><i class="fas fa-users"></i> Visitor List</a>
                 <a href="#" class="sidebar-item"><i class="fas fa-history"></i> View History</a>

@@ -11,20 +11,16 @@
                     <div class="hero__categories">
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
-                            <span>All departments</span>
+                            <span>All Categories</span>
                         </div>
                         <ul>
-                            <li><a href="#">Fresh Meat</a></li>
-                            <li><a href="#">Vegetables</a></li>
-                            <li><a href="#">Fruit & Nut Gifts</a></li>
-                            <li><a href="#">Fresh Berries</a></li>
-                            <li><a href="#">Ocean Foods</a></li>
-                            <li><a href="#">Butter & Eggs</a></li>
-                            <li><a href="#">Fastfood</a></li>
-                            <li><a href="#">Fresh Onion</a></li>
-                            <li><a href="#">Papayaya & Crisps</a></li>
-                            <li><a href="#">Oatmeal</a></li>
-                            <li><a href="#">Fresh Bananas</a></li>
+                            <li><a href="#">Liquid Milk</a></li>
+                            <li><a href="#">Yogurt (Doi) & Drinks</a></li>
+                            <li><a href="#">Milk Powder & Cream</a></li>
+                            <li><a href="#">Ghee & Butter</a></li>
+                            <li><a href="#">Condensed & Evaporated Milk</a></li>
+                            <li><a href="#">Cheese</a></li>
+                            <li><a href="#">Other Traditional Items</a></li>
                         </ul>
                     </div>
                 </div>

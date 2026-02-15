@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir /s \"C:\\\\software_project\\\\smart_dairy_website_Development\")",
+      "Bash(du:*)",
+      "WebFetch(domain:smartdairybd.com)",
+      "WebFetch(domain:www.smartgroup.com.bd)",
+      "Bash(dir /s \"c:\\\\software_project\\\\smart_dairy_website_Development\")",
+      "Bash(dir:*)",
+      "Bash(ls:*)",
+      "Bash(for f in 'c:/software_project/smart_dairy_website_Development/Implemenattion_Roadmap/Phase_1/'*.md)",
+      "Bash(done)",
+      "Bash(sort:*)",
+      "Bash(grep:*)",
+      "Bash(tree:*)"
+    ]
+  }
+}
